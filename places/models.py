@@ -14,10 +14,10 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    number = models.PositiveIntegerField()
     title = models.ForeignKey(Place, on_delete=models.CASCADE,
                                 related_name='images')
     image = models.ImageField()
+    number = models.PositiveIntegerField()
 
 
     def __str__(self):
