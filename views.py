@@ -45,4 +45,4 @@ def place_detail(request, place_id):
         }
     }
 
-    return JsonResponse(response, json_dumps_params={'ensure_ascii': False})
+    return JsonResponse(response, json_dumps_params={'ensure_ascii': False, 'indent': 2})
