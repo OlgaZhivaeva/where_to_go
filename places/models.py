@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import format_html
 
 
 class Place(models.Model):
@@ -10,13 +11,13 @@ class Place(models.Model):
 
 
     def __str__(self):
-        return f'{self.id} {self.title}'
+        return self.title
 
 
 class Image(models.Model):
     title = models.ForeignKey(Place, on_delete=models.CASCADE,
                                 related_name='images')
-    image = models.ImageField()
+    image = models.ImageField(db_index=True)
     number = models.PositiveIntegerField()
 
 
