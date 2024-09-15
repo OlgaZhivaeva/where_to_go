@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import format_html
 
 
 class Place(models.Model):
@@ -9,21 +8,14 @@ class Place(models.Model):
     lng = models.CharField(max_length=17)
     lat = models.CharField(max_length=17)
 
-
     def __str__(self):
         return self.title
 
 
 class Image(models.Model):
-    title = models.ForeignKey(Place, on_delete=models.CASCADE,
-                                related_name='images')
+    title = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField(db_index=True)
-    number = models.PositiveIntegerField()
-
-
-    def __str__(self):
-        return f'{self.number} {self.title}'
-
+    number = models.PositiveIntegerField(db_index=True, editable=True, default=0)
 
     class Meta:
         ordering = ['number']
