@@ -13,7 +13,17 @@
 SECRET_KEY=Секретный ключ проекта Джанго
 DEBUG = True или False
 ```
+### Установка зависимостей 
 
+```commandline
+pip install -r requirements.txt 
+```
+
+### Загрузка данных в базу данных из JSON-файла
+
+```python
+python manage.py load_place
+```
 ### Образец JSON-файла с локациями
 
 ```json
