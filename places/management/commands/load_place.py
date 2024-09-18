@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'Загружает данные в базу данных'
 
     def add_arguments(self, parser):
-        parser.add_argument('path_to_json', type=str, help='Путь до json файла или папки с json файлами')
+        parser.add_argument('path_to_json', type=str, help='Путь до json файла')
 
     def handle(self, *args, **options):
         path_to_json = options['path_to_json']
