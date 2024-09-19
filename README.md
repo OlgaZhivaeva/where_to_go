@@ -111,6 +111,8 @@ python manage.py load_place Путь/до/вашего/JSON-файла
 python manage.py runserver
 ```
 
+Перейдите по адресу [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
 
 ![&#x41A;&#x443;&#x434;&#x430; &#x43F;&#x43E;&#x439;&#x442;&#x438;](static/.gitbook/assets/site.png)
 
