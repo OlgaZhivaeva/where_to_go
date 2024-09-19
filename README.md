@@ -7,24 +7,67 @@
 
 [Ссылка на админку сайта](https://ozhiv.pythonanywhere.com/admin/)
 
-### Переменные окружения
+### Как установить
+
+Python3 должен быть уже установлен.
+
+Скачайте или клонируйте репозиторий.
 
 ```commandline
-SECRET_KEY=Секретный ключ проекта Джанго
-DEBUG = True или False
+git clone https://github.com/OlgaZhivaeva/where_to_go
 ```
-### Установка зависимостей 
+
+Перейдите в папку проекта `where_to_go`.
+
+```commandline
+cd where_to_go
+```
+
+Установите и активируйте виртуальное окружение.
+
+Для Windows:
+```commandline
+python -m venv venv
+venv\Scripts\activate.bat
+```
+Для Linux:
+```commandline
+python3 -m venv venv
+source venv/bin/activate
+```
+Используйте pip (или pip3, есть конфликт с Python2) для установки зависимостей 
 
 ```commandline
 pip install -r requirements.txt 
 ```
 
-### Загрузка данных в базу данных из JSON-файла
+### Переменные окружения
+
+Создайте файл `.env` в корне проекта и пропишите в нем переменные окружения
+
+```commandline
+SECRET_KEY=Секретный ключ проекта Джанго
+DEBUG = True или False
+```
+### База данных
+
+Выполните команду миграции базы данных
+
+```commandline
+python manage.py migrate
+```
+Создайте суперпользователя командой
+
+```commandline
+python manage.py createsuperuser
+```
+
+Загрузите данные в базу данных из JSON-файла
 
 ```python
-python manage.py load_place
+python manage.py load_place Путь/до/вашего/JSON-файла
 ```
-### Образец JSON-файла с локациями
+Образец JSON-файла с локациями
 
 ```json
 {
@@ -46,6 +89,15 @@ python manage.py load_place
 }
 
 ```
+### Запуск сайта
+
+Запустите сайт командой
+
+```commandline
+python manage.py runserver
+```
+
+
 ![&#x41A;&#x443;&#x434;&#x430; &#x43F;&#x43E;&#x439;&#x442;&#x438;](static/.gitbook/assets/site.png)
 
 [Демка сайта](https://devmanorg.github.io/where-to-go-frontend/).
