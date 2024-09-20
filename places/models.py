@@ -6,8 +6,8 @@ class Place(models.Model):
     title = models.CharField('заголовок', max_length=200, unique=True)
     short_description = models.TextField('краткое описание', blank=True)
     long_description = HTMLField('полное описание', blank=True)
-    lng = models.CharField('долгота', max_length=17)
-    lat = models.CharField('широта', max_length=17)
+    lng = models.FloatField('долгота')
+    lat = models.FloatField('широта')
 
     def __str__(self):
         return self.title
