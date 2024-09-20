@@ -24,7 +24,8 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-    fields = ['title', 'image', "get_preview"]
+    search_fields = ['image', "get_preview"]
+    raw_id_fields = ['title']
     readonly_fields = ["get_preview"]
 
     def get_preview(self, obj):
