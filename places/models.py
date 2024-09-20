@@ -9,13 +9,13 @@ class Place(models.Model):
     lng = models.FloatField('долгота')
     lat = models.FloatField('широта')
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         unique_together = [['lng', 'lat']]
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
+
+    def __str__(self):
+        return self.title
 
 
 class Image(models.Model):
