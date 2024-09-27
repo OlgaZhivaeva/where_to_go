@@ -20,7 +20,7 @@ def index(request):
                     "properties": {
                         "title": place.title,
                         "placeId": place.id,
-                        "detailsUrl": reverse('place_detail', args=[place.id])
+                        "detailsUrl": reverse("place_detail", args=[place.id])
                     }
                 }
         )
@@ -29,11 +29,11 @@ def index(request):
             "type": "FeatureCollection",
             "features": features
     }
-    return render(request, 'index.html', context={'context': context})
+    return render(request, "index.html", context={"context": context})
 
 
 def place_detail(request, place_id):
-    place = get_object_or_404(Place, id=place_id)
+    place = get_object_or_404(Place.objects.prefetch_related("images"), id=place_id)
     place_images = place.images.all()
     response = {
         "title": place.title,
@@ -46,4 +46,4 @@ def place_detail(request, place_id):
         }
     }
 
-    return JsonResponse(response, json_dumps_params={'ensure_ascii': False, 'indent': 2})
+    return JsonResponse(response, json_dumps_params={"ensure_ascii": False, "indent": 2})
