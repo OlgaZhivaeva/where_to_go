@@ -44,7 +44,7 @@ class Command(BaseCommand):
                     self.stderr.write(self.style.ERROR(f"Код ошибки загрузки картинки {response.status_code}"))
                     break
                 except requests.exceptions.ConnectionError:
-                    self.stderr.write(self.style.ERROR(f"Ошибка соединения при загрузке картинки {image_name}"))
+                    self.stderr.write(self.style.ERROR(f"Ошибка соединения при загрузке картинки"))
                     sleep(0.2)
                     continue
         self.stdout.write(self.style.SUCCESS(f"Место {place.title} успешно добавлено"))
